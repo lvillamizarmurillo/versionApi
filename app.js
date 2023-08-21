@@ -12,17 +12,10 @@ app.use(function(req,res,next){
     req.version = req.headers['accept-version'];
     next();
 })
-app.get('/test', prueba({
-    "1.0.0": ver1,
-    "1.0.1": ver2
+app.use('/autor', prueba({
+    "1.0.0": appAutor1,
+    "1.0.1": appAutor2
 }))
-
-function ver1(req,res){
-    appAutor1;
-}
-function ver2(req,res){
-    appAutor2;
-}
 
 const config = JSON.parse(process.env.MY_SERVER)
 app.listen(config, ()=>{

@@ -1,9 +1,9 @@
 import {Router} from "express";
-import {connect} from "../../db/atlas.js"
+import {connection} from "../../db/atlas.js"
 const appAutor1 = Router();
 
 appAutor1.get("/",async (req,res)=>{
-    let db = await connect();
+    let db = await connection();
     let autor = db.collection("autor");
     let result = await autor.find({}).toArray();
     res.send(result);
