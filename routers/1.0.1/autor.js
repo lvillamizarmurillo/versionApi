@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongodb';
 import {Router} from "express";
 import {connection} from "../../db/atlas.js"
-const appAutor2 = Router();
+const appAutor = Router();
 
-appAutor2.get("/",async(req,res)=>{
+appAutor.get("/",async(req,res)=>{
     let db = await connection();
     let autor = db.collection("autor");
     const {id_autor} = req.body
@@ -14,4 +14,4 @@ appAutor2.get("/",async(req,res)=>{
         res.status(200).json(consulta)
     } 
 })
-export default appAutor2;
+export {appAutor};
